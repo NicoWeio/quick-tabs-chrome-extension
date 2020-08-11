@@ -783,7 +783,9 @@ AbstractSearch.prototype.executeSearch = function(query, searchBookmark, searchH
     filteredTabs = bg.tabs.filter(bg.validTab);
     filteredClosed = bg.closedTabs;
   } else if (query === audibleQuery) {
-    filteredTabs = bg.tabs.filter(tab => bg.validTab(tab) && filterAudible(tab))
+    filteredTabs = bg.tabs.filter(tab => bg.validTab(tab) && filterAudible(tab));
+  } else if (query === ':pin') {
+    filteredTabs = bg.tabs.filter(tab => bg.validTab(tab) && tab.pinned);
   } else if (searchHistory || startsOrEndsWith(query, searchHistoryStr)) {
     // i hate to break out of a function part way though but...
     this.searchHistory(query, 0);
