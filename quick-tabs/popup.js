@@ -514,6 +514,7 @@ function renderTabs(params, delay, currentTab) {
   });
 
   let toSearchableObj = function(obj) {
+    obj.templateTabImage = `https://s2.googleusercontent.com/s2/favicons?domain_url=${obj.url}`;
     obj.templateTitle = encodeHTMLSource(obj.title);
     obj.templateTooltip = stripTitle(obj.title);
     obj.templateUrlPath = encodeHTMLSource(obj.url);
